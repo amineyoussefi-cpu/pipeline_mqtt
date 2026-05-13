@@ -6,7 +6,7 @@ import paho.mqtt.client as mqtt
 
 # Connexion au broker MQTT
 client = mqtt.Client()
-client.connect("localhost", 1883)
+client.connect("localhost", 1883) # ← se connecte au broker
 
 print("Simulateur démarré. Envoi des mesures...")
 
@@ -20,7 +20,7 @@ while True:
     }
 
     payload = json.dumps(mesure)
-    client.publish("iot/raffinerie", payload)
+    client.publish("iot/raffinerie", payload) # ← envoie au broker
     print(f"Envoyé : {payload}")
 
-    time.sleep(2)  # une mesure toutes les 2 secondes
+    time.sleep(1)  # une mesure toutes les 1 secondes
